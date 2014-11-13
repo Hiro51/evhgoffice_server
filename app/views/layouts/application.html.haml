@@ -6,4 +6,15 @@
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
     = csrf_meta_tags
   %body
+    %p.auth
+      - if authentication_signed_in?
+        = link_to "logout", destroy_authentication_session_path, :method => :delete
+      - else
+        = link_to "login", new_authentication_session_path
+
+    .notice
+      = notice
+    .alert
+      = alert
+
     = yield

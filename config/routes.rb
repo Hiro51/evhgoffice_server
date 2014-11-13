@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :authentications
   get 'users/index'
   get 'users/show'
 
